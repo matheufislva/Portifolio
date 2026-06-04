@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfólio | Dev em Formação</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+  <header>
+    <nav>
+      <span class="logo">{"dev"}</span>   <!-- Logo estilizada como código -->
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#habilidades">Habilidades</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#contato">Contato</a></li>
+        <li><a href="https://github.com/matheufislva" target="_blank">GitHub</a></li>
+      </ul>
+      <button id="btn-tema" onclick="alternarTema()">&#x1F319 Modo Escuro</button>   <!-- &#X usado para colocar codigo de emojjs. O VS Code tem possibilidade de colar diretamente o emojj, mas colocando códgo tem suporte para mais navegadores -->
+    </nav>
+  </header>
+
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-texto">
+        <p class="saudacao">Olá, eu sou</p>
+        <h1>Matheus <span class="destaque">Dev</span></h1>  
+        <!-- o span acima foi utilizado aqui como destaque para a palavra "Dev" no nome, como uma espécie de "div", mas para texto -->
+        <p class="subtitulo">Estudante de Sistemas de informação</p>
+        <button class="btn-primario" onclick="mostrarBoasVindas()">&#x2728 Saiba mais</button>    
+      </div>
+      <div class="hero-img">
+        <img src="imagem/avatar_git.png" alt="Foto de perfil do desenvolvedor"class="foto-perfil"/>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="secao">
+      <h2>Sobre <span class="destaque">Mim</span></h2>
+      <p>
+        Sou estudante do curso de Análise e Desenvolvimento de Sistemas, apaixonado por
+        tecnologia e desenvolvimento web. Estou sempre buscando aprender novas ferramentas
+        e criar projetos que resolvam problemas reais.
+      </p>
+    </section>
+
+    <!-- Habilidades em lista-->
+    <section id="habilidades" class="secao">
+      <h2>Minhas <span class="destaque">Habilidades</span></h2>
+      <ul class="lista-habilidades">
+        <li>&#x1F310 HTML5 — Estruturação semântica de páginas</li>
+        <li>&#x1F3A8 CSS3 — Estilização, Flexbox e animações</li>
+        <li>&#x2699 JavaScript — Interatividade e manipulação do DOM</li>
+        <li>&#x1F537 C# — Orientação a Objetos e lógica de programação</li>
+        <li>&#x1F3AF UX/UI — Design centrado no usuário</li>
+      </ul>
+    </section>
+
+    <!-- Projetos (link de navegação) -->
+    <section id="projetos" class="secao">
+      <h2>Meus <span class="destaque">Projetos</span></h2>
+      <div class="cards">
+        <div class="card">
+          <h3>SimulaFESP</h3>
+          <p>Simulador de entrevistas com IA para preparar alunos para o mercado de trabalho.</p>
+          <a href="https://github.com" target="_blank" class="btn-card">Ver projeto em GitHub →</a> <br>
+          <a href="https://app.netlify.com/projects/fespinho/overview" target="_blank" class="btn-card">Ver deploy →</a>
+        </div>
+        <div class="card">
+          <h3>Portfólio Pessoal</h3>
+          <p>Site de apresentação com HTML, CSS e JavaScript.</p>
+          <a href="#" target="_blank" class="btn-card">Ver projeto em GitHub →</a> <br>
+          <a href="#contato" class="btn-card">Entrar em contato →</a>
+        </div>
+        <div class="card">
+          <h3>DNC Engenharia</h3>
+          <p>Landing page para escritório de arquitetura com formulário integrado.</p>
+          <a href="https://github.com/matheufislva/RID145125_Desafio01-Landing-Page" target="_blank" class="btn-card">Ver projeto →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contato (formulário) -->
+    <section id="contato" class="secao">
+      <h2>Entre em <span class="destaque">Contato</span></h2>
+      <div class="formulario-wrapper">
+        <input type="text" id="nome" placeholder="Seu nome" />
+        <input type="email" id="email" placeholder="Seu e-mail" />
+        <textarea id="mensagem" placeholder="Sua mensagem..." rows="5"></textarea>
+        <button class="btn-primario" onclick="enviarFormulario()">Enviar Mensagem</button>
+      </div>
+      <p id="feedback-form" class="feedback-msg"></p>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>Desenvolvido por <strong>Matheus</strong> — FESP-PR · BSI 2026</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
