@@ -88,13 +88,14 @@
     <!-- Contato (formulário) -->
     <section id="contato" class="secao">
       <h2>Entre em <span class="destaque">Contato</span></h2>
-        <form  class="formulario-wrapper" id="meu-form" action="https://formspree.io/f/mjgdknrw" method="POST">
-        <input type="text" id="nome" placeholder="Seu nome" required />
-        <input type="email" id="email" placeholder="Seu e-mail" required/>
-        <input type="text" id="telefone" placeholder="Seu telefone para contato" required/>
-        <textarea name="mensagem" placeholder="Sua mensagem..." rows="5" required></textarea>
-        <button class="btn-primario" type="submit">Enviar Mensagem</button>
-        </form>
+        <form id="meu-form" action="https://api.web3forms.com/submit" method="POST" class="formulario-wrapper">
+           <input type="hidden" name="access_key" value="a30041f5-4f76-449d-984a-8b11f36c007e" />
+           <input type="text" name="nome" placeholder="Seu nome" required />
+           <input type="email" name="email" placeholder="Seu e-mail" required />
+           <input type="tel" name="telefone" placeholder="Seu telefone (ex: 41999999999)" />
+           <textarea name="mensagem" placeholder="Sua mensagem..." rows="5" required></textarea>
+       <button type="submit" class="btn-primario">Enviar Mensagem</button>
+</form>
         <p id="feedback-form" class="feedback-msg"></p>
       
     </section>
