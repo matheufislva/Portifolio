@@ -88,13 +88,15 @@
     <!-- Contato (formulário) -->
     <section id="contato" class="secao">
       <h2>Entre em <span class="destaque">Contato</span></h2>
-      <div class="formulario-wrapper">
-        <input type="text" id="nome" placeholder="Seu nome" />
-        <input type="email" id="email" placeholder="Seu e-mail" />
-        <textarea id="mensagem" placeholder="Sua mensagem..." rows="5"></textarea>
-        <button class="btn-primario" onclick="enviarFormulario()">Enviar Mensagem</button>
-      </div>
-      <p id="feedback-form" class="feedback-msg"></p>
+        <form  class="formulario-wrapper" id="meu-form" action="https://formspree.io/f/mjgdknrw" method="POST">
+        <input type="text" id="nome" placeholder="Seu nome" required />
+        <input type="email" id="email" placeholder="Seu e-mail" required/>
+        <input type="text" id="telefone" placeholder="Seu telefone para contato" required/>
+        <textarea name="mensagem" placeholder="Sua mensagem..." rows="5" required></textarea>
+        <button class="btn-primario" type="submit">Enviar Mensagem</button>
+        </form>
+        <p id="feedback-form" class="feedback-msg"></p>
+      
     </section>
 
   </main>

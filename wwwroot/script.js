@@ -1,4 +1,3 @@
-
 // INTERAÇÃO 1 — Alternância de tema claro/escuro
 function alternarTema() {
   const body = document.body;
@@ -9,10 +8,9 @@ function alternarTema() {
   if (body.classList.contains("dark")) {
     btn.textContent = "\u2600\uFE0F Modo Claro";
   } else {
-    btn.textContent = "\u1F319 Modo Escuro";
+    btn.textContent = "\uD83C\uDF19 Modo Escuro";
   }
 }
-
 
 // INTERAÇÃO 2 — Alerta de boas-vindas
 function mostrarBoasVindas() {
@@ -23,40 +21,32 @@ function mostrarBoasVindas() {
   );
 }
 
+// INTERAÇÃO 3 — Envio de formulário via Formspree
+const form = document.getElementById("meu-form");
+const feedback = document.getElementById("feedback-form");
 
-// INTERAÇÃO 3 — Validação e envio do formulário
-function enviarFormulario() {
-  const nome = document.getElementById("nome").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const mensagem = document.getElementById("mensagem").value.trim();
-  const feedback = document.getElementById("feedback-form");
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-  // Validação dos campos
-  if (!nome || !email || !mensagem) {
-    feedback.textContent = "\u26A0\uFE0F Por favor, preencha todos os campos antes de enviar.";
+  const data = new FormData(form);
+
+  const response = await fetch(form.action, {
+    method: "POST",
+    body: data,
+    headers: { Accept: "application/json" }
+  });
+
+  if (response.ok) {
+    feedback.textContent = "\u2705 Mensagem enviada! Entrarei em contato em breve.";
+    feedback.style.color = "#38a169";
+    form.reset();
+  } else {
+    feedback.textContent = "\u26A0\uFE0F Erro ao enviar. Tente novamente.";
     feedback.style.color = "#e53e3e";
-    return;
   }
+});
 
-  // Validação básica de e-mail
-  const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  if (!emailValido) {
-    feedback.textContent = "\u26A0\uFE0F Informe um e-mail válido.";
-    feedback.style.color = "#e53e3e";
-    return;
-  }
-
-  // Sucesso
-  feedback.textContent = `\u2705 Mensagem enviada com sucesso! Obrigado, ${nome}. Entrarei em contato em breve.`;
-  feedback.style.color = "#38a169";
-
-  // Limpa os campos
-  document.getElementById("nome").value = "";
-  document.getElementById("email").value = "";
-  document.getElementById("mensagem").value = "";
-}
-
-// EXTRA — Scroll suave para as seções
+// EXTRA — Scroll suave
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener("click", function (e) {
     const alvo = document.querySelector(this.getAttribute("href"));
