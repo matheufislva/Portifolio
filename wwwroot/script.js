@@ -30,18 +30,23 @@ form.addEventListener("submit", async function (e) {
 
   const data = new FormData(form);
 
-  const response = await fetch(form.action, {
-    method: "POST",
-    body: data,
-    headers: { Accept: "application/json" }
-  });
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      body: data,
+      headers: { Accept: "application/json" }
+    });
 
-  if (response.ok) {
-    feedback.textContent = "\u2705 Mensagem enviada! Entrarei em contato em breve.";
-    feedback.style.color = "#38a169";
-    form.reset();
-  } else {
-    feedback.textContent = "\u26A0\uFE0F Erro ao enviar. Tente novamente.";
+    if (response.ok) {
+      feedback.textContent = "\u2705 Mensagem enviada! Entrarei em contato em breve.";
+      feedback.style.color = "#38a169";
+      form.reset();
+    } else {
+      feedback.textContent = "\u26A0\uFE0F Erro ao enviar. Tente novamente mais tarde.";
+      feedback.style.color = "#e53e3e";
+    }
+  } catch (error) {
+    feedback.textContent = "\u26A0\uFE0F Erro de conexão. Verifique sua internet.";
     feedback.style.color = "#e53e3e";
   }
 });
